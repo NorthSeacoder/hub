@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "albedo",
+  "description": "A template for creating chrome extensions with CRXJS, Vite and TypeScript",
+  "version": "1.0.0",
+  "action": { "default_popup": "src/popup/index.html", "default_title": "Albedo" },
+  "icons": {
+    "16": "vite.svg",
+    "48": "vite.svg",
+    "128": "vite.svg"
+  },
+  "content_scripts": [
+    {
+      "js": ["src/content-scripts/index.ts"],
+      "matches": ["https://www.google.com/*"]
+    }
+  ],
+  "permissions": ["storage", "tabs"],
+  "options_page": "src/options/index.html",
+  "background": {
+    "service_worker": "src/background/index.ts"
+  }
+}
