@@ -4,6 +4,9 @@ import vue from '@vitejs/plugin-vue'
 import { crx } from '@crxjs/vite-plugin'
 import zip from 'rollup-plugin-zip'
 
+import Components from 'unplugin-vue-components/vite'
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
+
 import manifest from './src/manifest.json'
 import pkg from './package.json'
 
@@ -21,7 +24,18 @@ const crxOptions = {
 }
 
 export default defineConfig({
-  plugins: [vue(), crx(crxOptions), isProd && zip({ dir: 'releases' })],
+  plugins: [
+    vue(),
+    Components({
+      resolvers: [
+        AntDesignVueResolver({
+          importStyle: false,
+        }),
+      ],
+    }),
+    crx(crxOptions),
+    isProd && zip({ dir: 'releases' }),
+  ],
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
