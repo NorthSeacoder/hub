@@ -17,3 +17,4 @@ every useful things in my life
 5. pkgs 内是本项目下所有子包,每个子包都是一个独立的 npm 包,每个子包都有自己的测试用例,测试框架使用vitest
 6. template 内是本项目下所有子包的模板,每个子包都有自己的模板,模板使用plop构建,目前应该支持 vscode 插件,figma-plugin,babel-plugin 等开发模板
 7. 本项目下所有子包都应该有自己的测试用例,README.md,package.json,.gitignore
+8. 参考 create-vite 改造 templates
