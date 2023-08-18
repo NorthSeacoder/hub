@@ -10,7 +10,6 @@ const pkg = JSON.parse(hubPackageJsonContent)
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  outDir:"./dist",
   title: 'The Hub',
   description: pkg.description,
   themeConfig: {
